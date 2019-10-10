@@ -45,6 +45,22 @@ Brewer.MaskPhoneNumber = (function(){
 }());
 
 
+// Classe para CEP
+
+Brewer.MascaraCEP = (function() {
+	
+	function Mascara() {
+		this.inputCep = $('#cep_cliente');		
+	} 
+	
+	Mascara.prototype.iniciar = function() {
+		this.inputCep.mask('00.000.000');
+	}
+	
+	return Mascara;
+	
+}());
+
 
 // Chamando as funcoes
 
@@ -54,4 +70,7 @@ $(function() {
 	
 	var maskPhone = new Brewer.MaskPhoneNumber();
 	maskPhone.enable();
+	
+	var maskCep = new Brewer.MascaraCEP();
+	maskCep.iniciar();
 });

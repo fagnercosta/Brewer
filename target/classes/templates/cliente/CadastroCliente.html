@@ -32,19 +32,26 @@
 					<label>Tipo pessoa</label> 
 					<div>
 						<div class="radio  radio-inline">
-							<input type="radio" name="tipoPessoa"> 
-							<label>Física</label>
+							<input id="id_FISICA" type="radio" name="tipoPessoa"
+							 class="js-radio-tipo-pessoa"
+							 data-texto="CPF"
+							 data-mascara="000.000.000-72"
+							> 
+							<label class="control-label" for="id_FISICA">Física</label>
 						</div>
 						<div class="radio  radio-inline">
-							<input type="radio" name="tipoPessoa"> 
-							<label>Juridica</label>
+							<input type="radio" id="id_JURIDICA" name="tipoPessoa"
+							 class="js-radio-tipo-pessoa"
+							 data-texto="CNPJ"
+							 data-mascara="00.000.000/0000-00"> 
+							<label class="control-label" for="id_JURIDICA">Juridica</label>
 						</div>
 					</div>
 				</div>
 				
 				<div class="form-group  col-sm-8" >
 					<label for="cpfOuCnpj">CPF/CNPJ</label>
-					<input type="text" class="form-control" id="cpfOuCnpj"/>
+					<input type="text" class="form-control" id="cpfOuCnpj" disabled/>
 				</div>
 			</div>
 			
@@ -79,8 +86,8 @@
 			
 			<div class="row">
 				<div class="form-group  col-sm-4">
-					<label for="cep">CEP</label>
-					<input type="text" class="form-control" id="cep"/>
+					<label for="cep_cliente">CEP</label>
+					<input type="text" class="form-control js-cep" id="cep_cliente"/>
 				</div>
 				
 				<div class="form-group  col-sm-4">
@@ -102,5 +109,10 @@
 		</form>
 	</div>
 </section>
+
+<th:block layout:fragment="javascript-extra">
+	<script th:src="@{/javascripts/cliente.mascara-cpf-cnpj.js}"></script>
+	
+</th:block>
 
 </html>
